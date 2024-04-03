@@ -11,7 +11,11 @@ export class MissionService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getLaunches(): Observable<Launch[]> {
+  public fetchLaunches(): Observable<Launch[]> {
     return this.httpClient.get<Launch[]>(this.url);
+  }
+
+  public fetchLaunch(flight_number: number): Observable<Launch> {
+    return this.httpClient.get<Launch>(`${this.url}/${flight_number}`);
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, numberAttribute } from '@angular/core';
 import { Launch } from '../launch';
 import { MissionService } from '../mission.service';
 
@@ -15,7 +15,7 @@ export class MissionFilterComponent {
   constructor(private missionService: MissionService) {}
 
   ngOnInit() {
-    this.missionService.getLaunches().subscribe((response: Launch[]) => {
+    this.missionService.fetchLaunches().subscribe((response: Launch[]) => {
       this.launches = response;
     });
   }

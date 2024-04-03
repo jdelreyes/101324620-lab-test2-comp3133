@@ -2,20 +2,22 @@
   <div class="max-w-[1000px] m-auto p-2">
     <h1 class="text-5xl font-bold my-5">{{ title }}</h1>
     @for(launch of launches; track launch.flight_number) {
-    <div class="border my-2 p-5 rounded-xl bg-blue-300">
-      <div class="flex flex-row items-center py-2">
-        <img
-          [src]="launch.links.mission_patch_small"
-          [alt]="launch.mission_name"
-          class="w-[60px] mr-2 mb-2"
-        />
-        <div class="flex flex-col">
-          <h2 class="text-3xl font-semibold">{{ launch.mission_name }}</h2>
-          <p class="opacity-75">{{ launch.launch_year }}</p>
+    <a href="mission/{{ launch.flight_number }}">
+      <div class="border my-2 p-5 rounded-xl bg-blue-300 hover:bg-blue-400">
+        <div class="flex flex-row items-center py-2">
+          <img
+            src="{{ launch.links.mission_patch_small }}"
+            alt="{{ launch.mission_name }}"
+            class="w-[60px] mr-2 mb-2"
+          />
+          <div class="flex flex-col">
+            <h2 class="text-3xl font-semibold">{{ launch.mission_name }}</h2>
+            <p class="opacity-75">{{ launch.launch_year }}</p>
+          </div>
         </div>
+        <p>{{ launch.details }}</p>
       </div>
-      <p>{{ launch.details }}</p>
-    </div>
+    </a>
     }
   </div>
 </section>

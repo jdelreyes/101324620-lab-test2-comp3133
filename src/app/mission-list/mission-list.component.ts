@@ -1,13 +1,13 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { MissionService } from '../mission.service';
 import { Launch } from '../launch';
+import { MissionDetailsComponent } from '../mission-details/mission-details.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-mission-list',
   standalone: true,
-  imports: [],
+  imports: [MissionDetailsComponent],
   templateUrl: './mission-list.component.html',
 })
 export class MissionListComponent {
@@ -17,7 +17,7 @@ export class MissionListComponent {
   public constructor(private missionService: MissionService) {}
 
   ngOnInit() {
-    this.missionService.getLaunches().subscribe((response: Launch[]) => {
+    this.missionService.fetchLaunches().subscribe((response: Launch[]) => {
       this.launches = response;
     });
   }

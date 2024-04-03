@@ -11,8 +11,8 @@
           <div>
             <div class="bg-blue-100 rounded-xl p-2">
               <img
-                [src]="launch.links.mission_patch"
-                [alt]="launch.mission_name"
+                src="{{ launch.links.mission_patch }}"
+                alt="{{ launch.mission_name }}"
                 class="w-full"
               />
             </div>
@@ -25,10 +25,8 @@
             <div class="flex flex-row justify-between">
               <span class="font-semibold">Mission Ids</span>
               <span>
-                @if (launch.mission_id.length === 0) { - } @else { @for(id of
-                launch.mission_id; track id) {
-                {{ id }}
-                } }
+                @if (launch.mission_id.length === 0) {-} @else { @for(id of
+                launch.mission_id; track id) {{{ id }}} }
               </span>
             </div>
             <div class="flex flex-row justify-between">

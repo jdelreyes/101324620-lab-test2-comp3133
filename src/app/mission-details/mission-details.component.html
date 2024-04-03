@@ -1,0 +1,32 @@
+<section>
+  <div class="max-w-[800px] m-auto border p-4 bg-orange-200 rounded-xl my-2">
+    <h1 class="text-4xl font-bold">{{ title }}</h1>
+    <div>
+      <div class="flex flex-row justify-center items-center">
+        <div class="w-[300px] p-2">
+          <img
+            src="{{ launch?.links?.mission_patch }}"
+            alt="{{ launch?.mission_name }}"
+          />
+        </div>
+        <div>
+          <h2 class="text-2xl font-semibold text-orange-600">Mission</h2>
+          <p>Name: {{ launch?.mission_name }}</p>
+          <p>Launch Year: {{ launch?.launch_year }}</p>
+          <h2 class="text-2xl font-semibold text-orange-600">Rocket</h2>
+          <p>Name: {{ launch?.rocket?.rocket_name }}</p>
+          <p>Type: {{ launch?.rocket?.rocket_type }}</p>
+          <h2 class="text-2xl font-semibold text-orange-600">Launch Site</h2>
+          <p>Name: {{ launch?.launch_site?.site_name_long }}</p>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-2xl font-semibold text-orange-600">Launch Details</h2>
+        <p>{{ launch?.details }}</p>
+        <h2 class="text-2xl font-semibold text-orange-600">
+          More Info on Launch Details
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
