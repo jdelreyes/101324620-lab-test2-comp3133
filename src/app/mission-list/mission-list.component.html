@@ -1,0 +1,11 @@
+<h1 class="text-3xl font-bold">{{ title }}</h1>
+
+<section>
+  @for(launch of launches; track $index) {
+  <p>{{ launch.mission_name }}</p>
+  <p>{{ launch.launch_year }}</p>
+  <p>{{ launch.details }}</p>
+  <img [src]="launch.links.mission_patch_small" alt="" />
+  <hr class="w-full border border-black h-1" />
+  }
+</section>
