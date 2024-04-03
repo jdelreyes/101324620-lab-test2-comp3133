@@ -2,7 +2,7 @@
   <div class="max-w-[800px] m-auto border p-4 bg-orange-200 rounded-xl my-2">
     <h1 class="text-4xl font-bold">{{ title }}</h1>
     <div>
-      <div class="flex flex-row justify-center items-center">
+      <div class="flex flex-row items-center">
         <div class="w-[300px] p-2">
           <img
             src="{{ launch?.links?.mission_patch }}"
@@ -26,6 +26,15 @@
         <h2 class="text-2xl font-semibold text-orange-600">
           More Info on Launch Details
         </h2>
+        <a class="m-2" href="{{ launch?.links?.presskit }}"
+          ><fa-icon size="2xl" [icon]="faFileLines"></fa-icon
+        ></a>
+        <a class="m-2" href="{{ launch?.links?.wikipedia }}"
+          ><fa-icon size="2xl" [icon]="faEarthAmericas"></fa-icon
+        ></a>
+        <a class="m-2" href="{{ launch?.links?.video_link }}"
+          ><fa-icon size="2xl" [icon]="faVideo"></fa-icon
+        ></a>
       </div>
     </div>
   </div>

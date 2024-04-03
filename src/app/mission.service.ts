@@ -18,4 +18,8 @@ export class MissionService {
   public fetchLaunch(flight_number: number): Observable<Launch> {
     return this.httpClient.get<Launch>(`${this.url}/${flight_number}`);
   }
+
+  public fetchLaunchesByYear(year: number): Observable<Launch[]> {
+    return this.httpClient.get<Launch[]>(`${this.url}?launch_year=${year}`);
+  }
 }

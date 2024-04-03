@@ -1,50 +1,154 @@
 <section class="bg-blue-100">
   <div class="max-w-[1400px] m-auto p-2">
     <h1 class="text-5xl font-bold m-5">{{ title }}</h1>
-    <aside class="hidden"></aside>
-    <section>
-      <div class="flex flex-row flex-wrap">
-        @for (launch of launches; track launch.flight_number) {
-        <figure
-          class="max-w-[300px] flex flex-col justify-between border rounded-xl bg-white shadow-xl m-2 p-3"
-        >
-          <div>
-            <div class="bg-blue-100 rounded-xl p-2">
-              <img
-                src="{{ launch.links.mission_patch }}"
-                alt="{{ launch.mission_name }}"
-                class="w-full"
-              />
-            </div>
-            <h2 class="text-xl font-bold">
-              {{ launch.mission_name }} #{{ launch.flight_number }}
-            </h2>
-            <br class="h-[10px] w-full block border border-black" />
+    <div class="flex flex-row">
+      <aside class="basis-2/12 mx-2">
+        <div class="flex flex-col bg-white p-2 rounded-xl">
+          <h3 class="text-center text-lg">LaunchDate</h3>
+          <hr class="border-1 w-[85%] my-2 m-auto h-1 border-black" />
+          <div class="grid grid-cols-2 gap-5">
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2006)"
+            >
+              2006
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2007)"
+            >
+              2007
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2008)"
+            >
+              2008
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2009)"
+            >
+              2009
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2010)"
+            >
+              2010
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2011)"
+            >
+              2011
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2012)"
+            >
+              2012
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2013)"
+            >
+              2013
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2014)"
+            >
+              2014
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2015)"
+            >
+              2015
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2016)"
+            >
+              2016
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2017)"
+            >
+              2017
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2018)"
+            >
+              2018
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2019)"
+            >
+              2019
+            </button>
+            <button
+              class="bg-green-300 rounded-xl"
+              (click)="yearOnChange(2020)"
+            >
+              2020
+            </button>
           </div>
-          <div>
-            <div class="flex flex-row justify-between">
-              <span class="font-semibold">Mission Ids</span>
-              <span>
-                @if (launch.mission_id.length === 0) {-} @else { @for(id of
-                launch.mission_id; track id) {{{ id }}} }
-              </span>
+        </div>
+      </aside>
+      <section class="basis-10/12 mx-2">
+        @if (hasFilter) {
+        <div class="h-16">
+          <button class="bg-red-300 rounded-xl p-2" (click)="removeFilter()">Remove Filter</button>
+        </div>
+        }
+        <div class="flex flex-row flex-wrap">
+          @for (launch of launches; track launch.flight_number) {
+          <figure
+            class="max-w-[300px] flex flex-col justify-between border rounded-xl bg-white shadow-xl mx-2 mb-4 p-3"
+          >
+            <div>
+              <div class="bg-blue-100 rounded-xl p-2">
+                <img
+                  src="{{ launch.links.mission_patch }}"
+                  alt="{{ launch.mission_name }}"
+                  class="w-full"
+                />
+              </div>
+              <h2 class="text-xl font-bold">
+                {{ launch.mission_name }} #{{ launch.flight_number }}
+              </h2>
+              <br class="h-[10px] w-full block border border-black" />
             </div>
-            <div class="flex flex-row justify-between">
-              <span class="font-semibold">Launch Year</span
-              ><span>{{ launch.launch_year }}</span>
-            </div>
-            <div class="flex flex-row justify-between">
-              <span class="font-semibold">Successful Launch</span
-              ><span>@if (launch.launch_success) {YES} @else {NO}</span>
-            </div>
-            <!-- <div class="flex flex-row justify-between">
+            <div>
+              <div class="flex flex-row justify-between">
+                <span class="font-semibold">Mission Ids</span>
+                <span>
+                  @if (launch.mission_id.length === 0) {-} @else { @for(id of
+                  launch.mission_id; track id) {{{ id }}} }
+                </span>
+              </div>
+              <div class="flex flex-row justify-between">
+                <span class="font-semibold">Launch Year</span
+                ><span>{{ launch.launch_year }}</span>
+              </div>
+              <div class="flex flex-row justify-between">
+                <span class="font-semibold">Successful Launch</span
+                ><span>@if (launch.launch_success) {YES} @else {NO}</span>
+              </div>
+              <!-- <div class="flex flex-row justify-between">
               <span>Successful Landing</span
               ><span>{{ launch.launch_year }}</span>
             </div> -->
-          </div>
-        </figure>
-        }
-      </div>
-    </section>
+            </div>
+          </figure>
+          }
+        </div>
+      </section>
+    </div>
   </div>
 </section>

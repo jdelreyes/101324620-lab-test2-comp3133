@@ -3,11 +3,17 @@ import { MissionService } from '../mission.service';
 import { FormsModule } from '@angular/forms';
 import { Launch } from '../launch';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faEarthAmericas,
+  faFileLines,
+  faVideo,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-mission-details',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, FontAwesomeModule],
   templateUrl: './mission-details.component.html',
 })
 export class MissionDetailsComponent {
@@ -16,6 +22,9 @@ export class MissionDetailsComponent {
 
   @Input({ transform: numberAttribute, required: true })
   public flight_number: number = Number(this.route.snapshot.paramMap.get('id'));
+  public faFileLines = faFileLines;
+  public faEarthAmericas = faEarthAmericas;
+  public faVideo = faVideo;
 
   constructor(
     private missionService: MissionService,
