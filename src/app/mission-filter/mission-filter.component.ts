@@ -1,12 +1,22 @@
 import { Component } from '@angular/core';
+import { Launch } from '../launch';
+import { MissionService } from '../mission.service';
 
 @Component({
   selector: 'app-mission-filter',
   standalone: true,
   imports: [],
   templateUrl: './mission-filter.component.html',
-  styleUrl: './mission-filter.component.css'
 })
 export class MissionFilterComponent {
+  public title: string = 'Mission Filter';
+  public launches: Launch[] = [];
 
+  constructor(private missionService: MissionService) {}
+
+  ngOnInit() {
+    this.missionService.getLaunches().subscribe((response: Launch[]) => {
+      this.launches = response;
+    });
+  }
 }

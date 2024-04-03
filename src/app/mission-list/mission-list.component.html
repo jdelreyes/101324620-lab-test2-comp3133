@@ -1,7 +1,7 @@
 <section>
-  <div class="w-[1000px] m-auto">
+  <div class="max-w-[1000px] m-auto p-2">
     <h1 class="text-5xl font-bold my-5">{{ title }}</h1>
-    @for(launch of launches; track $index) {
+    @for(launch of launches; track launch.flight_number) {
     <div class="border my-2 p-5 rounded-xl bg-blue-300">
       <div class="flex flex-row items-center py-2">
         <img
