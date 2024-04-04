@@ -15,7 +15,7 @@ Clicking on a launch card takes you to low-level details about the mission.
 
 ![Mission Filter](/docs/mission-filter.png)
 
-### Mission filter On
+### Mission Filter On
 
 ![Mission Filter On](/docs/mission-filter-on.png)
 

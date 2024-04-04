@@ -16,7 +16,7 @@ export class MissionListComponent {
 
   public constructor(private missionService: MissionService) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.missionService.fetchLaunches().subscribe((response: Launch[]) => {
       this.launches = response;
     });

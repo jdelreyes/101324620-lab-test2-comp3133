@@ -4,8 +4,8 @@ import { MissionFilterComponent } from './mission-filter/mission-filter.componen
 import { MissionDetailsComponent } from './mission-details/mission-details.component';
 
 export const routes: Routes = [
-  { path: '', component: MissionListComponent },
-  { path: 'mission-filter', component: MissionFilterComponent },
+  { path: '', component: MissionFilterComponent },
+  { path: 'mission-list', component: MissionListComponent },
   { path: 'mission/:id', component: MissionDetailsComponent },
-  { path: '**', component: MissionListComponent },
+  { path: '**', component: MissionFilterComponent },
 ];

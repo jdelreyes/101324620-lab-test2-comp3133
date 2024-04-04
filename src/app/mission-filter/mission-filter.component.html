@@ -1,6 +1,11 @@
 <section class="bg-blue-100">
-  <div class="max-w-[1400px] m-auto p-2">
-    <h1 class="text-5xl font-bold m-5">{{ title }}</h1>
+  <div class="max-w-[1190px] m-auto p-2">
+    <div class="flex flex-row justify-between items-center">
+      <h1 class="text-5xl font-bold m-5">{{ title }}</h1>
+      <a class="m-5 underline text-xl block" href="mission-list"
+        >Mission List</a
+      >
+    </div>
     <div class="flex flex-row">
       <aside class="basis-2/12 mx-2">
         <div class="flex flex-col bg-white p-2 rounded-xl">
@@ -103,49 +108,53 @@
       <section class="basis-10/12 mx-2">
         @if (hasFilter) {
         <div class="h-16">
-          <button class="bg-red-300 rounded-xl p-2" (click)="removeFilter()">Remove Filter</button>
+          <button class="bg-red-300 rounded-xl p-2" (click)="removeFilter()">
+            Remove Filter
+          </button>
         </div>
         }
         <div class="flex flex-row flex-wrap">
           @for (launch of launches; track launch.flight_number) {
-          <figure
-            class="max-w-[300px] flex flex-col justify-between border rounded-xl bg-white shadow-xl mx-2 mb-4 p-3"
-          >
-            <div>
-              <div class="bg-blue-100 rounded-xl p-2">
-                <img
-                  src="{{ launch.links.mission_patch }}"
-                  alt="{{ launch.mission_name }}"
-                  class="w-full"
-                />
+          <a class="mx-2 mb-4" href="mission/{{ launch.flight_number }}">
+            <figure
+              class="max-w-[300px] flex flex-col justify-between border rounded-xl bg-white shadow-xl p-3"
+            >
+              <div>
+                <div class="bg-blue-100 rounded-xl p-2">
+                  <img
+                    src="{{ launch.links.mission_patch }}"
+                    alt="{{ launch.mission_name }}"
+                    class="w-full"
+                  />
+                </div>
+                <h2 class="text-xl font-bold">
+                  {{ launch.mission_name }} #{{ launch.flight_number }}
+                </h2>
+                <br class="h-[10px] w-full block border border-black" />
               </div>
-              <h2 class="text-xl font-bold">
-                {{ launch.mission_name }} #{{ launch.flight_number }}
-              </h2>
-              <br class="h-[10px] w-full block border border-black" />
-            </div>
-            <div>
-              <div class="flex flex-row justify-between">
-                <span class="font-semibold">Mission Ids</span>
-                <span>
-                  @if (launch.mission_id.length === 0) {-} @else { @for(id of
-                  launch.mission_id; track id) {{{ id }}} }
-                </span>
-              </div>
-              <div class="flex flex-row justify-between">
-                <span class="font-semibold">Launch Year</span
-                ><span>{{ launch.launch_year }}</span>
-              </div>
-              <div class="flex flex-row justify-between">
-                <span class="font-semibold">Successful Launch</span
-                ><span>@if (launch.launch_success) {YES} @else {NO}</span>
-              </div>
-              <!-- <div class="flex flex-row justify-between">
+              <div>
+                <div class="flex flex-row justify-between">
+                  <span class="font-semibold">Mission Ids</span>
+                  <span>
+                    @if (launch.mission_id.length === 0) {-} @else { @for(id of
+                    launch.mission_id; track id) {{{ id }}} }
+                  </span>
+                </div>
+                <div class="flex flex-row justify-between">
+                  <span class="font-semibold">Launch Year</span
+                  ><span>{{ launch.launch_year }}</span>
+                </div>
+                <div class="flex flex-row justify-between">
+                  <span class="font-semibold">Successful Launch</span
+                  ><span>@if (launch.launch_success) {YES} @else {NO}</span>
+                </div>
+                <!-- <div class="flex flex-row justify-between">
               <span>Successful Landing</span
               ><span>{{ launch.launch_year }}</span>
             </div> -->
-            </div>
-          </figure>
+              </div>
+            </figure>
+          </a>
           }
         </div>
       </section>
