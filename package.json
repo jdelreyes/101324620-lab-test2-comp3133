@@ -1,6 +1,7 @@
 {
   "name": "mission-list",
   "version": "0.0.0",
+  "author": "Jerome Delos Reyes",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
